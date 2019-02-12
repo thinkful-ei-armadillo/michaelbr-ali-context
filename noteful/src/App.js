@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import MainMain from './components/MainMain';
-import FolderMain from './components/FolderMain';
-import SideBarMain from './components/SideBarMain';
-import DynamicFolder from './components/DynamicFolder';
+import { Route, Switch } from 'react-router-dom';
+import Main from  './Main';
+import DynamicFold from './DynamicFold';
+import DynamicNote from './DynamicNote';
 import './App.css';
 
 
@@ -12,11 +11,9 @@ class App extends Component {
     return (
       <div className="App">
 
-
-        <Route path='/' component={MainMain} />
-        <Route path='/' component={SideBarMain} />
-        <Route path='/' component={FolderMain} />
-        <Route path='/folder/3' component={DynamicFolder} />
+          <Route exact path='/' component={Main} />
+          <Route path='/folder/:folder' component={DynamicFold} />
+          <Route path = '/note/:note' component={DynamicNote} />
 
       </div>
     );

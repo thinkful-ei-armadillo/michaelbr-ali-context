@@ -11,7 +11,7 @@ class SideBarMain extends Component{
            <NavLink to="/">Home</NavLink>
          </li>
          <li>
-           <NavLink to="/">Home</NavLink>
+           <NavLink to="/folder/3">Folder</NavLink>
          </li>
          <li>
            <NavLink to="/">Home</NavLink>
