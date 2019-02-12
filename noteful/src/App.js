@@ -31,7 +31,7 @@ class App extends Component {
       
       return (
         <div>
-          <DynamicNotes note={note} notes={this.state.notes} folder={this.state.folders} />
+          <DynamicNotes note={note} />
         </div>
         
       );
