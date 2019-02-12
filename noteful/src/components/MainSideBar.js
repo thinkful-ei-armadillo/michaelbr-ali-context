@@ -21,7 +21,7 @@ class MainSideBar extends Component {
           {sidebarList}
           <button className="addFolderButton">Add Folder</button>
         </section>
-        {<MainNotes />}
+        
       </div>
 
     );
