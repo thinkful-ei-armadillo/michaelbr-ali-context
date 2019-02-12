@@ -16,7 +16,7 @@ class DynamicFolder extends Component{
     .filter(i => i.folderId === this.props.folders.id)
     .map((key, name) => {
       return (<section className="note">
-                <h3>{key.name}</h3>
+                <Link to={`/note/${key.id}`}><h3>{key.name}</h3></Link>
                   <p>{key.modified}</p>
                   <button className="deleteNoteButton">Delete Note</button>
               </section>)

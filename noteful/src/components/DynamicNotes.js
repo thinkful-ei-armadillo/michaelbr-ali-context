@@ -6,12 +6,13 @@ class DynamicNotes extends Component{
   
 render(){
  
-  console.log(this.props.note)
+  const folder = this.props.folder.find(i=> i.id === this.props.note.folderId);
+ 
   return(
     <div>
       <h3>{this.props.note.name}</h3>
       <p>{this.props.note.content}</p>
-      <button className="back">Back</button>
+      <Link to={`/folder/${folder.id}`}><button className="back">Back</button></Link> 
     </div>
   );
 }
