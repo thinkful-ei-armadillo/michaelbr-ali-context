@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { dummy } from './dummy';
+import MainNotes from './MainNotes';
 
 class MainSideBar extends Component {
 
@@ -20,6 +21,7 @@ class MainSideBar extends Component {
           {sidebarList}
           <button className="addFolderButton">Add Folder</button>
         </section>
+        {<MainNotes />}
       </div>
 
     );
