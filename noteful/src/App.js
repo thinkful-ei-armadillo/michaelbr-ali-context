@@ -4,6 +4,7 @@ import Main from  './Main';
 import DynamicFold from './DynamicFold';
 import DynamicNote from './DynamicNote';
 import './App.css';
+import FolderMain from './components/FolderMain';
 
 
 
@@ -30,6 +31,14 @@ class App extends Component {
 }
 
   render() {
+    const folder = ({select}) => {
+      return (
+        <div>
+           <FolderMain />
+        </div>
+       
+      );
+    }
     return (
       <div className="App">
 

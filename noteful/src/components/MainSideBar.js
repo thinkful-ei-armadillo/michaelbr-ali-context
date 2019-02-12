@@ -20,19 +20,23 @@ class MainSideBar extends Component {
           "name": "Spangley"
         }],
       notes: []
+    }
   }
-}
 
-  render(){
+  render() {
     let sidebarList = this.state.folders.map((key, name) => {
-      return (<section key={key.id} className="folderEntry">{key.name}</section>
-      )});
-    
+      return (
+        <section key={key.id} className="folderEntry">
+          <NavLink to={`/folder/${key.id}`}>{key.name}</NavLink>
+        </section>
+      )
+    });
 
-    return(
+
+    return (
       <section className="folderContainer">
         {sidebarList}
-      <button className="addFolderButton">Add Folder</button>
+        <button className="addFolderButton">Add Folder</button>
       </section>
     );
   }

@@ -11,7 +11,7 @@ render(){
       <h1>Noteful</h1>
         <section className="mainList">
         <section className="folderList">
-          <MainSideBar/>
+          <MainSideBar />
         </section>
         <section className="noteList">
           <MainNotes />
