@@ -5,15 +5,12 @@ import { Link } from 'react-router-dom';
 class DynamicNotes extends Component{
   
 render(){
-  let notesList = this.props.notes.map((key, name) => {
-    return (<section className="note">
-              <Link to={`/note/${key.id}`}><h3>{key.name}</h3></Link>
-                <p>{key.content}</p>
-            </section>)
-  })
+ 
+  console.log(this.props.note)
   return(
     <div>
-      {notesList}
+      <h3>{this.props.note.name}</h3>
+      <p>{this.props.note.content}</p>
       <button className="back">Back</button>
     </div>
   );

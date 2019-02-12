@@ -27,7 +27,7 @@ class App extends Component {
     }
 
     helpNote(e){
-      let note = this.state.notes.find( i => i.id === e.match.params.id);
+      let note = this.state.notes.find( i => i.id === e.match.params.note);
       
       return (
         <div>
