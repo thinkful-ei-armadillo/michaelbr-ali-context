@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { dummy } from './dummy';
 
 class MainSideBar extends Component {
-  
+
   render() {
-  
+
     let sidebarList = this.props.folders.map((key, name) => {
       return (
         <section key={key.id} className="folderEntry">
@@ -15,10 +15,13 @@ class MainSideBar extends Component {
     });
 
     return (
-      <section className="folderContainer">
-        {sidebarList}
-        <button className="addFolderButton">Add Folder</button>
-      </section>
+      <div>
+        <section className="folderContainer">
+          {sidebarList}
+          <button className="addFolderButton">Add Folder</button>
+        </section>
+      </div>
+
     );
   }
 }
