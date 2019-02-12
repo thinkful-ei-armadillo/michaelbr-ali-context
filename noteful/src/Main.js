@@ -11,10 +11,10 @@ render(){
       <h1>Noteful</h1>
         <section className="mainList">
         <section className="folderList">
-          <MainSideBar />
+          <MainSideBar folders={this.props.folders} notes={this.props.notes}/>
         </section>
         <section className="noteList">
-          <MainNotes />
+          <MainNotes folders={this.props.folders} notes={this.props.notes}/>
         </section>
         </section>
 
