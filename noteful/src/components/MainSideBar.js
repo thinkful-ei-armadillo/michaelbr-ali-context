@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { dummy } from './dummy';
-import MainNotes from './MainNotes';
+import OurContext from './OurContext';
+
 
 class MainSideBar extends Component {
 
+static contextType = OurContext;
+
   render() {
 
-    let sidebarList = this.props.folders.map((key, name) => {
+    let sidebarList = this.context.dummy.folders.map((key, name) => {
       return (
         <section key={key.id} className="folderEntry">
           <Link to={`/folder/${key.id}`}>{key.name}</Link>
@@ -29,16 +31,5 @@ class MainSideBar extends Component {
 }
 
 
-{/* <ul>
-         <li>
-           <NavLink to="/">Home</NavLink>
-         </li>
-         <li>
-           <NavLink to="/folder/3">Folder</NavLink>
-         </li>
-         <li>
-           <NavLink to="/">Home</NavLink>
-         </li>
-       </ul> */}
 
 export default MainSideBar;

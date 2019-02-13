@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import OurContext from './OurContext';
 
 
 class DynamicNotes extends Component{
-  
+
+static contextType = OurContext;
+
 render(){
- 
- 
+
   return(
     <div>
       <h3>{this.props.note.name}</h3>

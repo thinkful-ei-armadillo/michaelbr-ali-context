@@ -5,6 +5,7 @@ import DynamicFolder from './components/DynamicFolder';
 import DynamicNotes from './components/DynamicNotes';
 import './App.css';
 import dummy from './components/dummy';
+import OurContext from './OurContext';
 
 
 

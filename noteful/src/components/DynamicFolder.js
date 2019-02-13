@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import OurContext from './OurContext';
 
 class DynamicFolder extends Component{
 
+static contextType = OurContext;
+
+
   render(){
+    console.log(this.context.dummy);
     let sidebarList = this.props.fold.map((key, name) => {
       return (
         <section key={key.id} className="folderEntry">
