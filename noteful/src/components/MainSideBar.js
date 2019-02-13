@@ -8,8 +8,9 @@ class MainSideBar extends Component {
 static contextType = OurContext;
 
   render() {
+    const curFold = this.context;
 
-    let sidebarList = this.context.dummy.folders.map((key, name) => {
+    let sidebarList = curFold.folders.map((key, name) => {
       return (
         <section key={key.id} className="folderEntry">
           <Link to={`/folder/${key.id}`}>{key.name}</Link>

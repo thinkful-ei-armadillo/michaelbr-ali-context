@@ -4,16 +4,48 @@ import Main from  './Main';
 import DynamicFolder from './components/DynamicFolder';
 import DynamicNotes from './components/DynamicNotes';
 import './App.css';
-import dummy from './components/dummy';
-import OurContext from './OurContext';
-
-
-
+import OurContext from './components/OurContext';
 
 class App extends Component {
+
+  static contextType = OurContext;
+
   constructor(props) {
     super(props);
-    this.state = dummy 
+    this.state = {
+      notes: [],
+      folders: []
+    } 
+  }
+
+    componentDidMount(){
+      Promise.all([
+        fetch(`http://localhost:9090/notes`),
+        fetch(`http://localhost:9090/folders`)
+      ])
+        .then(([notesResponse, foldersResponse]) => {
+          if(!notesResponse.ok)
+            return notesResponse.json().then(e => Promise.reject(e))
+          if(!foldersResponse.ok)
+            return foldersResponse.json().then(e => Promise.reject(e))
+
+          return Promise.all([
+            notesResponse.json(),
+            foldersResponse.json()
+          ])
+        })
+        .then(([notes, folders]) => {
+          this.setState({notes, folders})
+        })
+        .catch(err => {
+          console.error({err})
+        })
+    }
+
+    deleteNote = (noteId) => {
+      this.setState({
+        notes: this.state.notes.filter(note => note.id !== noteId)
+      })
     }
 
     helpFolder(e){
@@ -38,16 +70,21 @@ class App extends Component {
       );
     }
 
-
-
   render() {
+    const contextSomething = {
+      notes: this.state.notes,
+      folders: this.state.folders,
+      deleteNote: this.deleteNote
+    };
+
     return (
-      <div className="App">
-          <Route exact path='/' component={() => <Main folders={this.state.folders} notes={this.state.notes}/> } />
-         
-         <Route exact path='/folder/:folderId' render={(e)=> this.helpFolder(e)} />
-          <Route exact path = '/note/:note' render={ (e) => this.helpNote(e)} /> 
-      </div>
+      <OurContext.Provider value={contextSomething}>
+        <div className="App">
+          <Route exact path='/' component={() => <Main folders={this.state.folders} notes={this.state.notes} />} />
+          <Route exact path='/folder/:folderId' render={(e) => this.helpFolder(e)} />
+          <Route exact path='/note/:note' render={(e) => this.helpNote(e)} />
+        </div>
+      </OurContext.Provider>
     );
     }
 
